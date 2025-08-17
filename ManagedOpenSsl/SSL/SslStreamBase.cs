@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using OpenSSL.Extensions;
+using System.Threading.Tasks;
 
 namespace OpenSSL.SSL
 {
@@ -156,7 +157,7 @@ namespace OpenSSL.SSL
 					}
 					return (null != asyncException);
 				}
-			}
+			}			
 
 			public WaitHandle AsyncWaitHandle
 			{
@@ -212,7 +213,7 @@ namespace OpenSSL.SSL
 				// If we have a callback method, invoke it
 				if (userCallback != null)
 				{
-					userCallback.BeginInvoke(this, null, null);
+					Task.Run(() => userCallback.Invoke(this)); // BeginInvoke(this,null,null);
 				}
 			}
 

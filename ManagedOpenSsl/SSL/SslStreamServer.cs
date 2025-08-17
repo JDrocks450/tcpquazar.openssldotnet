@@ -34,6 +34,11 @@ namespace OpenSSL.SSL
 {
 	internal class SslStreamServer : SslStreamBase
 	{
+		/// <summary>
+		/// Use <see cref="Sni"/> extensions
+		/// </summary>
+		public static bool USE_SNICB => SslStream.USE_SNI;
+
 		public SslStreamServer(
 			Stream stream, 
 			X509Certificate serverCertificate,
@@ -59,8 +64,11 @@ namespace OpenSSL.SSL
 			// Initalize the Ssl object
 			ssl = new Ssl(sslContext);
 
-			sniCb = sniExt.ServerSniCb;
-			sniExt.AttachSniExtensionServer(ssl.Handle, sslContext.Handle, sniCb);
+			if (USE_SNICB)
+			{
+				sniCb = sniExt.ServerSniCb;
+				sniExt.AttachSniExtensionServer(ssl.Handle, sslContext.Handle, sniCb);
+			}
 
 			// Initialze the read/write bio
 			read_bio = BIO.MemoryBuffer(false);
@@ -131,13 +139,16 @@ namespace OpenSSL.SSL
 				throw new ArgumentException("Server certificate must have a private key", "serverCertificate");
 			}
 
-			// Initialize the context with specified TLS version
-			sslContext = new SslContext(SslMethod.TLSv12_server_method, ConnectionEnd.Server, new[] {
+	  // Initialize the context with specified TLS version
+	  SslMethod method = SslMethod.SSLv23_server_method;
+			sslContext = new SslContext(method, ConnectionEnd.Server, new[] {
 				Protocols.Http2,
-				Protocols.Http1
+				Protocols.Http1,
+				Protocols.Http2NoTls
 			});
             
 			var options = sslContext.Options;
+			Console.WriteLine($"Enabled SSL Protocols: {enabledSslProtocols} Method: {nameof(SslMethod.SSLv23_server_method)}");
 
 			// Remove support for protocols not specified in the enabledSslProtocols
 			if (!EnumExtensions.HasFlag(enabledSslProtocols, SslProtocols.Ssl2))
@@ -164,7 +175,7 @@ namespace OpenSSL.SSL
 			// Set the client certificate verification callback if we are requiring client certs
 			if (clientCertificateRequired)
 			{
-				sslContext.SetVerify(VerifyMode.SSL_VERIFY_PEER | VerifyMode.SSL_VERIFY_FAIL_IF_NO_PEER_CERT, OnRemoteCertificate);
+				sslContext.SetVerify(VerifyMode.SSL_VERIFY_PEER | VerifyMode.SSL_VERIFY_FAIL_IF_NO_PEER_CERT, OnRemoteCertificate);				
 			}
 			else
 			{

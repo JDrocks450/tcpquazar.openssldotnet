@@ -247,6 +247,11 @@ namespace OpenSSL.SSL
 		}
 
 		/// <summary>
+		/// Use <see cref="Sni"/> extensions
+		/// </summary>
+		public static bool USE_SNI { get; set; } = true;
+
+		/// <summary>
 		/// Reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
 		/// </summary>
 		/// <param name="buffer"></param>
@@ -645,8 +650,8 @@ namespace OpenSSL.SSL
 
 			// Finish the async AuthenticateAsServer call - EndRead/Write call will throw exception on error
 			EndRead(ar);
-
-			AlpnSelectedProtocol = sslStream.ssl.AlpnSelectedProtocol;
+			if(SslStreamServer.USE_SNICB)
+				AlpnSelectedProtocol = sslStream.ssl.AlpnSelectedProtocol;
 		}
 
 		/// <summary>
