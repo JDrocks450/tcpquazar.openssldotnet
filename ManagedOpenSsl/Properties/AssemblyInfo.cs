@@ -30,10 +30,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OpenSSL.NET")]
-[assembly: AssemblyDescription("A managed wrapper for OpenSSL")]
+[assembly: AssemblyTitle("TCPQuaZar.OpenSSL")]
+[assembly: AssemblyDescription("A managed wrapper for OpenSSL for use in TCPQuaZar projects")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("OpenSSL.NET")]
+[assembly: AssemblyCompany("Jeremy Glazebrook")]
 [assembly: AssemblyProduct("OpenSSL.NET")]
 [assembly: AssemblyCopyright("Copyright (c) OpenSSL.NET 2006-2012")]
 [assembly: AssemblyTrademark("")]

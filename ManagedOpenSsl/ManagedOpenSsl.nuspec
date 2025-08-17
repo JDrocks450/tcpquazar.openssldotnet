@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>TCPQuaZar.OpenSSL</id>
+    <version>0.6.0.1</version>
+    <title>TCPQuaZar.OpenSSL</title>
+    <authors>Jeremy Glazebrook</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/JDrocks450/TCPQuaZar</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright 2025</copyright>
+    <tags>nio2so TCPQuaZar OpenSSL.NET</tags>
+  </metadata>
+</package>

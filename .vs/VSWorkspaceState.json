@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ManagedOpenSsl",
+    "\\ManagedOpenSsl\\SSL"
   ],
-  "SelectedNode": "\\openssl.net.sln",
+  "SelectedNode": "\\ManagedOpenSsl\\SSL\\SslStreamServer.cs",
   "PreviewInSolutionExplorer": false
 }
