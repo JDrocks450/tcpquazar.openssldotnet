@@ -25,11 +25,8 @@
 
 using OpenSSL.Core;
 using OpenSSL.Crypto;
-using OpenSSL.Extensions;
 using OpenSSL.X509;
 using System.IO;
-using OpenSSL;
-using System;
 
 namespace OpenSSL.SSL
 {

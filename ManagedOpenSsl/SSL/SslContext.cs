@@ -28,7 +28,6 @@ using OpenSSL.Crypto;
 using OpenSSL.X509;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using OpenSSL.Extensions;
 
 namespace OpenSSL.SSL

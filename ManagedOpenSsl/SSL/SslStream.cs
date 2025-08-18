@@ -25,7 +25,6 @@
 
 using OpenSSL.X509;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Security;
 

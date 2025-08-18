@@ -25,7 +25,6 @@
 
 using OpenSSL.Core;
 using System;
-using System.Runtime.InteropServices;
 
 namespace OpenSSL.X509
 {

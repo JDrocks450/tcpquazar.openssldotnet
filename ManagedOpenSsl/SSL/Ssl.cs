@@ -27,10 +27,8 @@ using OpenSSL.Core;
 using OpenSSL.X509;
 using System;
 using System.Runtime.InteropServices;
-using OpenSSL.Extensions;
 using OpenSSL.Exceptions;
 using System.Text;
-using System.Collections.Generic;
 
 namespace OpenSSL.SSL
 {

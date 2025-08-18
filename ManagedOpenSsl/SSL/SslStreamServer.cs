@@ -28,7 +28,6 @@ using OpenSSL.X509;
 using System;
 using System.IO;
 using System.Text;
-using OpenSSL;
 
 namespace OpenSSL.SSL
 {

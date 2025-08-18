@@ -24,9 +24,7 @@
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using OpenSSL.Core;
-using OpenSSL.X509;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using OpenSSL.Extensions;
